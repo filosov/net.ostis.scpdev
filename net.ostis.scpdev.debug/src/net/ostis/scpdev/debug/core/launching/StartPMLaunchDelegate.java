@@ -24,11 +24,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import net.ostis.scpdev.ScpdevPlugin;
 import net.ostis.scpdev.debug.core.IDebugCoreConstants;
 import net.ostis.scpdev.debug.core.model.PMDebugTarget;
 import net.ostis.scpdev.external.ScCoreModule;
-import net.ostis.scpdev.ui.view.SCPDebuggerConsoleView;
+import net.ostis.scpdev.debug.ui.views.SCPDebuggerConsoleView;
 
 import org.apache.commons.lang3.Validate;
 import org.eclipse.core.resources.IProject;
@@ -44,8 +43,6 @@ import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.IPerspectiveDescriptor;
-import org.eclipse.ui.IPerspectiveRegistry;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
@@ -101,7 +98,7 @@ public class StartPMLaunchDelegate extends LaunchConfigurationDelegate {
 				{
 					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 					try {
-						PlatformUI.getWorkbench().showPerspective("net.ostis.scpdev.perspectives.scpdevdebug", window);
+						PlatformUI.getWorkbench().showPerspective("net.ostis.scpdev.debug.SCPdevDebugPerspective", window);
 					} catch (WorkbenchException e)
 					{
 						e.printStackTrace();

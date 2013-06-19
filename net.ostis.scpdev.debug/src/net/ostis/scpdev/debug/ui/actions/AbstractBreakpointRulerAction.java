@@ -256,5 +256,4 @@ public abstract class AbstractBreakpointRulerAction extends Action implements IU
 
 		return breakpoints;
 	}
-
 }

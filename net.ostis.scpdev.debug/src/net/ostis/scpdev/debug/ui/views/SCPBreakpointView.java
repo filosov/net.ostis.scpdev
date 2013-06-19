@@ -1,7 +1,7 @@
-package net.ostis.scpdev.ui.view;
+package net.ostis.scpdev.debug.ui.views;
 
-import net.ostis.scpdev.ui.model.BreakpointModel;
-import net.ostis.scpdev.ui.model.BreakpointModelProvider;
+import net.ostis.scpdev.debug.model.BreakpointModel;
+import net.ostis.scpdev.debug.model.BreakpointModelProvider;
 
 import java.io.File;
 import java.util.HashMap;
@@ -35,7 +35,7 @@ import org.eclipse.ui.part.ViewPart;
 
 public class SCPBreakpointView extends ViewPart 
 {
-	public static final String ID = "net.ostis.scpdev.SCPBreakPointView";
+	public static final String ID = "net.ostis.scpdev.debug.SCPBreakpointView";
 	private BreakpointModelProvider mBreakpointListProvider;
 	private HashMap<BreakpointModel, IBreakpoint> mMapModel2Breakpoint;
 	private CheckboxTableViewer mBreakPointList;
@@ -53,9 +53,9 @@ public class SCPBreakpointView extends ViewPart
 		mBreakPointList = CheckboxTableViewer.newCheckList(parent, SWT.BORDER | SWT.FULL_SELECTION | SWT.H_SCROLL | SWT.V_SCROLL);
 		mBreakPointList.setLabelProvider(new ColumnLabelProvider()
 				{
-					private final Image Active = new Image(Display.getDefault(), SCPBreakpointView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "icons/breakpointActive.png");
+					private final Image Active = new Image(Display.getDefault(), SCPBreakpointView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/icons/breakpointActive.png");
 					
-					private final Image Inactive = new Image(Display.getDefault(), SCPBreakpointView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "icons/breakpointInactive.png");
+					private final Image Inactive = new Image(Display.getDefault(), SCPBreakpointView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/icons/breakpointInactive.png");
 					
 					@Override
 					public String getText(Object element)

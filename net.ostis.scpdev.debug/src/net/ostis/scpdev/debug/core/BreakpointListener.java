@@ -1,6 +1,6 @@
 package net.ostis.scpdev.debug.core;
 
-import net.ostis.scpdev.ui.view.SCPBreakpointView;
+import net.ostis.scpdev.debug.ui.views.SCPBreakpointView;
 
 import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.debug.core.IBreakpointListener;

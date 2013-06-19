@@ -30,6 +30,7 @@ import net.ostis.sc.memory.SCKeynodes;
 import net.ostis.sc.memory.SCPKeynodes;
 import net.ostis.sc.memory.SCSession;
 import net.ostis.sc.memory.TupUtils;
+import net.ostis.scpdev.debug.ui.views.SCPStackTraceView;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.logging.Log;
@@ -41,6 +42,8 @@ import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * A Processor Module thread. From code of examples PDA debugger plugin
@@ -274,6 +277,16 @@ public class SCPProcess extends PMDebugElement implements IThread {
 
 			refreshStackAsArray();
 
+			Display.getDefault().asyncExec(new Runnable() {
+				
+				@Override
+				public void run()
+				{
+					SCPStackTraceView stackTraceView = (SCPStackTraceView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(SCPStackTraceView.ID);
+					stackTraceView.createList(stackAsArray);
+				}
+			});
+			
 			if (log.isDebugEnabled()) {
 				StringBuffer buffer = new StringBuffer();
 				buffer.append("Fetched " + toString());
@@ -286,6 +299,8 @@ public class SCPProcess extends PMDebugElement implements IThread {
 				}
 				log.debug(buffer.toString());
 			}
+			
+			
 		} else {
 			topFrame.update();
 		}

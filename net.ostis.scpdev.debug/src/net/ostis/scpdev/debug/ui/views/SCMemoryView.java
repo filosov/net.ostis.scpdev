@@ -19,7 +19,7 @@
  */
 package net.ostis.scpdev.debug.ui.views;
 
-import org.eclipse.gef.ui.parts.ScrollingGraphicalViewer;
+//import org.eclipse.gef.ui.parts.ScrollingGraphicalViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -28,15 +28,15 @@ import org.eclipse.ui.part.ViewPart;
  */
 public class SCMemoryView extends ViewPart {
 
-	private ScrollingGraphicalViewer memoryViewer;
+//	private ScrollingGraphicalViewer memoryViewer;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		memoryViewer = new ScrollingGraphicalViewer();
-		memoryViewer.createControl(parent);
+//		memoryViewer = new ScrollingGraphicalViewer();
+//		memoryViewer.createControl(parent);
 	}
 
 	/* (non-Javadoc)
@@ -44,7 +44,7 @@ public class SCMemoryView extends ViewPart {
 	 */
 	@Override
 	public void setFocus() {
-		memoryViewer.getControl().setFocus();
+//		memoryViewer.getControl().setFocus();
 	}
 
 }

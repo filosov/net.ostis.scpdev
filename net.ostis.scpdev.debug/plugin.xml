@@ -156,9 +156,33 @@
          		name="SC"/> 
             <view
                 name="SC Memory View"
-		        category="SC"                 
+		        category="net.ostis.scpdev.debug.ui.views.SCMemoryViews"                 
                 class="net.ostis.scpdev.debug.ui.views.SCMemoryView"
                 id="net.ostis.scpdev.debug.ui.views.SCMemoryView" />
+            <view
+                  class="net.ostis.scpdev.debug.ui.views.SCPBreakpointView"
+                  category="debug"
+                  icon="icons/breakpointView.png"
+                  id="net.ostis.scpdev.debug.SCPBreakpointView"
+                  name="Breakpoint view"
+                  restorable="true">
+            </view>
+            <view
+                  class="net.ostis.scpdev.debug.ui.views.SCPStackTraceView"
+                  category="debug"
+                  icon="icons/stackTraceView.png"
+                  id="net.ostis.scpdev.debug.SCPStackTraceView"
+                  name="Stack trace"
+                  restorable="true">
+            </view>
+            <view
+                  class="net.ostis.scpdev.debug.ui.views.SCPDebuggerConsoleView"
+                  category="debug"
+                  icon="icons/debug_console.png"
+                  id="net.ostis.scpdev.debug.SCPDebuggerConsoleView"
+                  name="Debug console"
+                  restorable="true">
+            </view>
 
     </extension>
 
@@ -224,6 +248,15 @@
             autoClose="true"
             autoOpen="true" />
 
+    </extension>
+    <extension
+          point="org.eclipse.ui.perspectives">
+       <perspective
+             class="net.ostis.scpdev.debug.perspective.SCPdevDebugPerspective"
+             icon="icons/scp_debug_perspective.png"
+             id="net.ostis.scpdev.perspectives.scpdevdebug"
+             name="SCP Debug">
+       </perspective>
     </extension>
 
 </plugin>

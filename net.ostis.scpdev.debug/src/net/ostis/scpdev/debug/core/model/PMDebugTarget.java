@@ -57,6 +57,7 @@ import org.eclipse.debug.core.model.IMemoryBlock;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IThread;
 
+
 /**
  * Processor Module Debug Target. From code of examples PDA debugger plugin
  * "org.eclipse.debug.examples.core".
@@ -367,7 +368,9 @@ public class PMDebugTarget extends PMDebugElement implements IDebugTarget, SCPDe
 				SCPKeynodes.processSCP, SCType.ARC_CONST_POS, SCType.NODE_CONST));
 		try {
 			for (; !it.isOver(); it.next())
+			{
 				new SCPProcess(this, it.getValue(2));
+			}
 		} finally {
 			it.erase();
 		}

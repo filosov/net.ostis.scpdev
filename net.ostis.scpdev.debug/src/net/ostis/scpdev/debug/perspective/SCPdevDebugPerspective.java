@@ -18,11 +18,10 @@
  * along with OSTIS. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.ostis.scpdev.perspectives;
+package net.ostis.scpdev.debug.perspective;
 
-import net.ostis.scpdev.ui.view.*;
+import net.ostis.scpdev.debug.ui.views.*;
 
-import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveDescriptor;

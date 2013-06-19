@@ -1,4 +1,4 @@
-package net.ostis.scpdev.ui.view;
+package net.ostis.scpdev.debug.ui.views;
 
 import java.io.*;
 import org.eclipse.swt.SWT;
@@ -16,7 +16,7 @@ import org.eclipse.ui.part.ViewPart;
 
 public class SCPDebuggerConsoleView extends ViewPart
 {
-	public static final String ID = "net.ostis.scpdev.SCPDebuggerConsoleView";
+	public static final String ID = "net.ostis.scpdev.debug.SCPDebuggerConsoleView";
 	
 	private static Text mDebuggerOutput = null;
 	private static Text mDebuggerCommand = null;

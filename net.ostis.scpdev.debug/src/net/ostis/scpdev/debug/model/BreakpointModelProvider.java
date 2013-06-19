@@ -1,4 +1,4 @@
-package net.ostis.scpdev.ui.model;
+package net.ostis.scpdev.debug.model;
 
 import java.util.List;
 import java.util.ArrayList;

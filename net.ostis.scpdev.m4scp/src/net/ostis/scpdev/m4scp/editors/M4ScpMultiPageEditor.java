@@ -47,6 +47,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.text.source.IAnnotationModel;
 import org.eclipse.jface.text.source.ISourceViewer;
@@ -138,15 +139,26 @@ public class M4ScpMultiPageEditor extends MultiPageEditorPart implements IResour
     void createPage0() {
         try {
             m4scpEditor = new InternalM4ScpTextEditor();
+            MessageDialog.openInformation(getSite().getShell(), "mess", "start");
             int index = addPage(m4scpEditor, getEditorInput());
             setPageText(index, "M4SCP source code");       
             IAction actionRulerDbClick = new BreakpointRulerAction(m4scpEditor, m4scpEditor.getScVerticalRuler());
             m4scpEditor.setAction("RulerDoubleClick", actionRulerDbClick);
             IAction actionRulerClick = new EnableDisableBreakpointRulerAction(m4scpEditor, m4scpEditor.getScVerticalRuler());
             m4scpEditor.setAction("RulerClick", actionRulerClick);
-            
+            MessageDialog.openInformation(getSite().getShell(), "mess", "end");
         } catch (PartInitException e) {
             ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
+        }
+        catch (NullPointerException e)
+        {
+        	String errorString = new String();
+        	for (int i = 0; i < e.getStackTrace().length; ++i)
+        	{
+        		errorString = errorString.concat(e.getStackTrace()[i].toString())
+        		errorString = errorString.concat("\r\n");
+        	}
+        	ErrorDialog.openError(getSite().getShell(), "Null pointer", errorString, )
         }
     }
 
@@ -281,7 +293,6 @@ public class M4ScpMultiPageEditor extends MultiPageEditorPart implements IResour
                 if (convertJob.getResult() == Status.OK_STATUS)
                     scsEditor.setInput(new StorageEditorInput(new InMemoryStorage(out.toString())));
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
